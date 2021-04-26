@@ -3,6 +3,7 @@ import 'package:first_web_app/widgets/centered_view.dart';
 import 'package:first_web_app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -21,112 +22,128 @@ class _HomePageState extends State<HomePage> {
           Column(
             children: [
               Expanded(
-                child: SingleChildScrollView(
+                child: DraggableScrollbar.rrect(
                   controller: _scrollController,
-                  scrollDirection: Axis.vertical,
-                  child: Stack(
+                  // thumbColor: Cooloors.primaryTextColor,
+                  // isAlwaysShown: true, pressDuration: Duration(seconds: 0),
+                  // hoverThickness: 10.0,
+                  // thickness: 8.0,
+                  // radius: ,
+                  // showTrackOnHover: true,
+                  backgroundColor: Cooloors.primaryTextColor,
+                  heightScrollThumb: size.height / 2,
+                  alwaysVisibleScrollThumb: true,
+
+                  child: ListView(
+                    controller: _scrollController,
                     children: [
-                      Column(
+                      Stack(
                         children: [
-                          SizedBox(
-                            height: size.height,
-                            width: size.width,
-                            child: Container(
-                              color: Cooloors.backgroundColor,
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 200),
-                                child: Text(
-                                  "Hello",
-                                  style: GoogleFonts.aclonica(
-                                    fontSize: 350,
-                                    color: Colors.redAccent.withOpacity(0.5),
-                                    // fontStyle: FontStyle.italic
+                          Column(
+                            children: [
+                              SizedBox(
+                                height: size.height,
+                                width: size.width,
+                                child: Container(
+                                  color: Cooloors.backgroundColor,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 200),
+                                    child: Text(
+                                      "Hello",
+                                      style: GoogleFonts.aclonica(
+                                        fontSize: 350,
+                                        color:
+                                            Colors.redAccent.withOpacity(0.5),
+                                        // fontStyle: FontStyle.italic
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
+                              SizedBox(
+                                height: size.height,
+                                child: Container(
+                                  color: Colors.black87,
+                                ),
+                              ),
+                            ],
                           ),
-                          SizedBox(
-                            height: size.height,
+                          CenteredView(
                             child: Container(
-                              color: Colors.black87,
-                            ),
-                          ),
-                        ],
-                      ),
-                      CenteredView(
-                        child: Container(
-                          child: Column(
-                            children: [
-                              Row(
+                              child: Column(
                                 children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                  Row(
                                     children: [
-                                      SizedBox(
-                                        height: size.height / 4,
-                                      ),
-                                      Text(
-                                        "I am",
-                                        style: GoogleFonts.abrilFatface(
-                                          textStyle: TextStyle(
-                                            color: Colors.black54,
-                                            // letterSpacing: 0.5,
-                                            fontSize: 40,
-                                            shadows: [
-                                              Shadow(
-                                                  color: Colors.black12,
-                                                  offset: Offset(10, 10),
-                                                  blurRadius: 5.0),
-                                              Shadow(
-                                                  color: Colors.black12,
-                                                  offset: Offset(3, 3),
-                                                  blurRadius: 2.0),
-                                            ],
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(
+                                            height: size.height / 4,
                                           ),
-                                        ),
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          /// Scroll maximum end, if you want you can give hardcoded values also in place of _scrollController.position.maxScrollExtent
-                                          _scrollController.animateTo(
-                                              size.height,
-                                              duration:
-                                                  Duration(milliseconds: 500),
-                                              curve: Curves.ease);
-                                        },
-                                        child: Text(
-                                          "Pranab Saha",
-                                          style: GoogleFonts.abrilFatface(
-                                            textStyle: TextStyle(
-                                              color: Cooloors.primaryTextColor,
-                                              letterSpacing: 0.5,
-                                              fontSize: 100,
-                                              shadows: [
-                                                Shadow(
-                                                    color: Colors.black12,
-                                                    offset: Offset(10, 10),
-                                                    blurRadius: 5.0),
-                                                Shadow(
-                                                    color: Colors.black12,
-                                                    offset: Offset(3, 3),
-                                                    blurRadius: 2.0),
-                                              ],
+                                          Text(
+                                            "I am",
+                                            style: GoogleFonts.abrilFatface(
+                                              textStyle: TextStyle(
+                                                color: Colors.black54,
+                                                // letterSpacing: 0.5,
+                                                fontSize: 40,
+                                                shadows: [
+                                                  Shadow(
+                                                      color: Colors.black12,
+                                                      offset: Offset(10, 10),
+                                                      blurRadius: 5.0),
+                                                  Shadow(
+                                                      color: Colors.black12,
+                                                      offset: Offset(3, 3),
+                                                      blurRadius: 2.0),
+                                                ],
+                                              ),
                                             ),
                                           ),
-                                        ),
+                                          GestureDetector(
+                                            onTap: () {
+                                              /// Scroll maximum end, if you want you can give hardcoded values also in place of _scrollController.position.maxScrollExtent
+                                              _scrollController.animateTo(
+                                                  size.height,
+                                                  duration: Duration(
+                                                      milliseconds: 500),
+                                                  curve: Curves.ease);
+                                            },
+                                            child: Text(
+                                              "Pranab Saha",
+                                              style: GoogleFonts.abrilFatface(
+                                                textStyle: TextStyle(
+                                                  color:
+                                                      Cooloors.primaryTextColor,
+                                                  letterSpacing: 0.5,
+                                                  fontSize: 100,
+                                                  shadows: [
+                                                    Shadow(
+                                                        color: Colors.black12,
+                                                        offset: Offset(10, 10),
+                                                        blurRadius: 5.0),
+                                                    Shadow(
+                                                        color: Colors.black12,
+                                                        offset: Offset(3, 3),
+                                                        blurRadius: 2.0),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(height: 1000),
+                                          Text("Helloooo")
+                                        ],
                                       ),
-                                      SizedBox(height: 1000),
-                                      Text("Helloooo")
                                     ],
                                   ),
                                 ],
                               ),
-                            ],
-                          ),
-                        ),
-                      )
+                            ),
+                          )
+                        ],
+                      ),
                     ],
                   ),
                 ),
