@@ -24,9 +24,10 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  google_fonts: ^2.0.0
-  url_strategy: ^0.2.0
   draggable_scrollbar: ^0.1.0
+  google_fonts: ^2.0.0
+  responsive_builder: ^0.4.1
+  url_strategy: ^0.2.0
 
 dev_dependencies:
   flutter_test:
@@ -40,7 +41,6 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - assets/
