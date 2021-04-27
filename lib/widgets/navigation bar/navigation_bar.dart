@@ -7,12 +7,18 @@ import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class NavigationBar extends StatelessWidget {
+  final ScrollController scrollController;
+
+  const NavigationBar({Key key, this.scrollController}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    ScrollController scrollController = this.scrollController;
     return ScreenTypeLayout(
       mobile: NavigationBarMobile(),
       tablet: NavigationBarTablet(),
-      desktop: NavigationBarDesktop(),
+      desktop: NavigationBarDesktop(
+        scrollController: scrollController,
+      ),
     );
   }
 }

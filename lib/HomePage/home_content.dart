@@ -11,7 +11,7 @@ class HomeContentDesktop extends StatefulWidget {
 }
 
 class _HomeContentDesktopState extends State<HomeContentDesktop> {
-  ScrollController _scrollController = ScrollController();
+  ScrollController scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -21,12 +21,12 @@ class _HomeContentDesktopState extends State<HomeContentDesktop> {
           children: [
             Expanded(
               child: DraggableScrollbar.rrect(
-                controller: _scrollController,
+                controller: scrollController,
                 backgroundColor: Cooloors.primaryTextColor,
                 heightScrollThumb: size.height / 2,
                 alwaysVisibleScrollThumb: true,
                 child: ListView(
-                  controller: _scrollController,
+                  controller: scrollController,
                   children: [
                     Stack(
                       children: [
@@ -93,7 +93,7 @@ class _HomeContentDesktopState extends State<HomeContentDesktop> {
                                         ),
                                         GestureDetector(
                                           onTap: () {
-                                            _scrollController.animateTo(
+                                            scrollController.animateTo(
                                                 size.height,
                                                 duration:
                                                     Duration(milliseconds: 500),
@@ -139,7 +139,9 @@ class _HomeContentDesktopState extends State<HomeContentDesktop> {
             ),
           ],
         ),
-        NavigationBar(),
+        NavigationBar(
+          scrollController: scrollController,
+        ),
       ],
     );
   }
