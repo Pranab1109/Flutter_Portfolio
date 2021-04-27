@@ -31,7 +31,7 @@ class NavigationBarDesktop extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      scrollController.animateTo(size.height,
+                      scrollController.animateTo(0,
                           duration: Duration(milliseconds: 500),
                           curve: Curves.easeIn);
                     },
@@ -42,20 +42,41 @@ class NavigationBarDesktop extends StatelessWidget {
                   SizedBox(
                     width: 40,
                   ),
-                  NavBarItem(
-                    title: 'About Me',
+                  GestureDetector(
+                    onTap: () {
+                      scrollController.animateTo(size.height,
+                          duration: Duration(milliseconds: 500),
+                          curve: Curves.easeIn);
+                    },
+                    child: NavBarItem(
+                      title: 'About Me',
+                    ),
                   ),
                   SizedBox(
                     width: 40,
                   ),
-                  NavBarItem(
-                    title: 'My Works',
+                  GestureDetector(
+                    onTap: () {
+                      scrollController.animateTo(size.height * 2,
+                          duration: Duration(milliseconds: 500),
+                          curve: Curves.easeIn);
+                    },
+                    child: NavBarItem(
+                      title: 'My Works',
+                    ),
                   ),
                   SizedBox(
                     width: 40,
                   ),
-                  NavBarItem(
-                    title: 'Contact Me',
+                  GestureDetector(
+                    onTap: () {
+                      scrollController.animateTo(size.height * 3,
+                          duration: Duration(milliseconds: 500),
+                          curve: Curves.easeIn);
+                    },
+                    child: NavBarItem(
+                      title: 'Contact Me',
+                    ),
                   ),
                 ],
               )

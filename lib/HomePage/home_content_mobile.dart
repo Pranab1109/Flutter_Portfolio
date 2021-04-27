@@ -34,7 +34,7 @@ class _HomeContentMobileState extends State<HomeContentMobile> {
                               alignment: Alignment.bottomRight,
                               height: size.height,
                               width: size.width,
-                              color: Cooloors.backgroundColor,
+                              color: Cooloors.sectionOneBackgroundColor,
                               child: Text(
                                 "Hello :\\",
                                 style: GoogleFonts.aclonica(
@@ -93,7 +93,7 @@ class _HomeContentMobileState extends State<HomeContentMobile> {
                                       "Pranab Saha",
                                       style: GoogleFonts.abrilFatface(
                                         textStyle: TextStyle(
-                                          color: Cooloors.primaryTextColor,
+                                          color: Cooloors.primaryLightTextColor,
                                           letterSpacing: 0.5,
                                           fontSize: 70,
                                           shadows: [

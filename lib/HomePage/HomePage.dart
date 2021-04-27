@@ -1,4 +1,4 @@
-import 'package:first_web_app/HomePage/home_content.dart';
+import 'package:first_web_app/HomePage/home_content_desktop.dart';
 import 'package:first_web_app/HomePage/home_content_mobile.dart';
 import 'package:first_web_app/widgets/navigation_drawer.dart';
 import 'package:flutter/material.dart';
