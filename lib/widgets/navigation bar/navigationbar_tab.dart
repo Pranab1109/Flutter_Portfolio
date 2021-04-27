@@ -1,4 +1,3 @@
-import 'package:first_web_app/widgets/centered_view.dart';
 import 'package:first_web_app/widgets/navigation%20bar/navbar_items.dart';
 import 'package:first_web_app/widgets/navigation%20bar/navbar_logo.dart';
 import 'package:flutter/material.dart';

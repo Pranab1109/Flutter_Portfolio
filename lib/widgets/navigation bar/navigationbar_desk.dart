@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class NavigationBarDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return CenteredView(
       child: Container(
         margin: const EdgeInsets.only(top: 30),
@@ -18,7 +19,9 @@ class NavigationBarDesktop extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              NavBarLogo(),
+              NavBarLogo(
+                size: size.width / 40,
+              ),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
