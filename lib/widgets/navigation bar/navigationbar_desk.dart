@@ -23,60 +23,51 @@ class NavigationBarDesktop extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              NavBarLogo(
-                size: size.width / 40,
+              GestureDetector(
+                onTap: () {
+                  scrollController.animateTo(0,
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeIn);
+                },
+                child: NavBarLogo(
+                  size: size.width / 40,
+                ),
               ),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      scrollController.animateTo(0,
-                          duration: Duration(milliseconds: 500),
-                          curve: Curves.easeIn);
-                    },
-                    child: NavBarItem(
-                      title: 'Home',
-                    ),
+                  NavBarItem(
+                    page: 0,
+                    scrollController: scrollController,
+                    size: size,
+                    title: 'Home',
                   ),
                   SizedBox(
                     width: 40,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      scrollController.animateTo(size.height,
-                          duration: Duration(milliseconds: 500),
-                          curve: Curves.easeIn);
-                    },
-                    child: NavBarItem(
-                      title: 'About Me',
-                    ),
+                  NavBarItem(
+                    page: 1,
+                    scrollController: scrollController,
+                    size: size,
+                    title: 'About Me',
                   ),
                   SizedBox(
                     width: 40,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      scrollController.animateTo(size.height * 2,
-                          duration: Duration(milliseconds: 500),
-                          curve: Curves.easeIn);
-                    },
-                    child: NavBarItem(
-                      title: 'My Works',
-                    ),
+                  NavBarItem(
+                    page: 2,
+                    scrollController: scrollController,
+                    size: size,
+                    title: 'My Works',
                   ),
                   SizedBox(
                     width: 40,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      scrollController.animateTo(size.height * 3,
-                          duration: Duration(milliseconds: 500),
-                          curve: Curves.easeIn);
-                    },
-                    child: NavBarItem(
-                      title: 'Contact Me',
-                    ),
+                  NavBarItem(
+                    page: 3,
+                    scrollController: scrollController,
+                    size: size,
+                    title: 'Contact Me',
                   ),
                 ],
               )

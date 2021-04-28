@@ -1,4 +1,3 @@
-import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:first_web_app/colors.dart';
 import 'package:first_web_app/widgets/centered_view.dart';
 import 'package:first_web_app/widgets/navigation%20bar/navigation_bar.dart';
@@ -34,7 +33,13 @@ class _HomeContentMobileState extends State<HomeContentMobile> {
                               alignment: Alignment.bottomRight,
                               height: size.height,
                               width: size.width,
-                              color: Cooloors.sectionOneBackgroundColor,
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(colors: [
+                                  Cooloors.sectionOneBackgroundColor1,
+                                  Cooloors.sectionOneBackgroundColor2,
+                                  Cooloors.sectionOneBackgroundColor3
+                                ]),
+                              ),
                               child: Text(
                                 "Hello :\\",
                                 style: GoogleFonts.aclonica(

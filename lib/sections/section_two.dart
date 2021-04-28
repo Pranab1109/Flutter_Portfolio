@@ -1,4 +1,5 @@
 import 'package:first_web_app/colors.dart';
+import 'package:first_web_app/widgets/animated_widget.dart';
 import 'package:first_web_app/widgets/centered_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,13 @@ class SectionTwo extends StatelessWidget {
             alignment: Alignment.topLeft,
             height: size.height,
             width: size.width,
-            color: Cooloors.sectionTwoBackgroundColor,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Cooloors.sectionTwoBackgroundColor1,
+                Cooloors.sectionTwoBackgroundColor2,
+                Cooloors.sectionTwoBackgroundColor3
+              ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+            ),
             child: Text(
               ":)",
               style: GoogleFonts.aclonica(
@@ -47,31 +54,8 @@ class SectionTwo extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          alignment: Alignment.center,
-                          margin: const EdgeInsets.only(left: 200, top: 50),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 30,
-                                color: Colors.black26,
-                                offset: Offset(20, 20),
-                              ),
-                              BoxShadow(
-                                blurRadius: 10,
-                                color: Colors.black26,
-                                offset: Offset(10, 10),
-                              ),
-                            ],
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(500),
-                            child: Image.asset(
-                              'Images/pranab.jpeg',
-                            ),
-                          ),
-                          height: 400,
+                        CustomAnimatedWidget(
+                          child: PranabImage(),
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -214,7 +198,12 @@ class SectionTwo extends StatelessWidget {
                                       duration: Duration(milliseconds: 500),
                                       curve: Curves.easeIn);
                                 },
-                                child: Text("My Works"))
+                                child: Row(
+                                  children: [
+                                    Text("My Works"),
+                                    Icon(Icons.arrow_downward_rounded)
+                                  ],
+                                ))
                           ],
                         ),
                       ],
@@ -226,6 +215,44 @@ class SectionTwo extends StatelessWidget {
           ),
         ),
       ]),
+    );
+  }
+}
+
+class PranabImage extends StatelessWidget {
+  const PranabImage({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      margin: const EdgeInsets.only(left: 200, top: 50),
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 30,
+            color: Colors.black26,
+            offset: Offset(20, 20),
+          ),
+          BoxShadow(
+            blurRadius: 10,
+            color: Colors.black26,
+            offset: Offset(10, 10),
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(500),
+        child: Image.asset(
+          'Images/pranab.jpeg',
+          color: Colors.black12,
+          colorBlendMode: BlendMode.darken,
+        ),
+      ),
+      height: 400,
     );
   }
 }

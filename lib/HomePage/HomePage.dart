@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // ScrollController _scrollController = ScrollController();
+  ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(

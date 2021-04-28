@@ -21,7 +21,16 @@ class SectionFour extends StatelessWidget {
             alignment: Alignment.bottomRight,
             height: size.height,
             width: size.width,
-            color: Colors.pink[200],
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Cooloors.sectionFourBackgroundColor1,
+                    Cooloors.sectionFourBackgroundColor2,
+                    Cooloors.sectionFourBackgroundColor3
+                  ]),
+            ),
             child: Text(
               ":)",
               style: GoogleFonts.aclonica(

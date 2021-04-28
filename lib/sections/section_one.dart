@@ -18,12 +18,18 @@ class SectionOne extends StatelessWidget {
           alignment: Alignment.bottomRight,
           height: size.height,
           width: size.width,
-          color: Cooloors.sectionOneBackgroundColor,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Cooloors.sectionOneBackgroundColor1,
+              Cooloors.sectionOneBackgroundColor2,
+              Cooloors.sectionOneBackgroundColor3
+            ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+          ),
           child: Text(
             "Hello :\\",
             style: GoogleFonts.aclonica(
               fontSize: size.width / 5,
-              color: Colors.redAccent.withOpacity(0.5),
+              color: Colors.white30.withOpacity(0.2),
               // fontStyle: FontStyle.italic
             ),
           ),
@@ -88,6 +94,9 @@ class SectionOne extends StatelessWidget {
                                 ),
                               ),
                             ),
+                          ),
+                          Row(
+                            children: [],
                           ),
                           SizedBox(height: size.height / 4),
                         ],

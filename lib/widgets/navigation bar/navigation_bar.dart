@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:first_web_app/widgets/navigation%20bar/navigationbar_mobile.dart';
 import 'package:first_web_app/widgets/navigation%20bar/navigationbar_tab.dart';
 import 'package:first_web_app/widgets/navigation%20bar/navigationbar_desk.dart';

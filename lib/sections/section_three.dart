@@ -18,92 +18,111 @@ class SectionThree extends StatelessWidget {
           height: size.height,
           width: size.width,
           child: Container(
-            alignment: Alignment.bottomRight,
+            alignment: Alignment.bottomLeft,
             height: size.height,
             width: size.width,
-            color: Colors.yellow[100],
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Cooloors.sectionThreeBackgroundColor1,
+                    Cooloors.sectionThreeBackgroundColor2,
+                    Cooloors.sectionThreeBackgroundColor3
+                  ]),
+            ),
             child: Text(
-              ":)",
+              "</>",
               style: GoogleFonts.aclonica(
                 fontSize: size.width / 5,
-                color: Colors.blueAccent.withOpacity(0.5),
-                // fontStyle: FontStyle.italic
+                color: Colors.black12.withOpacity(0.3),
               ),
             ),
           ),
         ),
         CenteredView(
-          child: SizedBox(
-            height: size.height,
-            child: Container(
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: size.height / 4,
-                          ),
-                          Text(
-                            "I am",
-                            style: GoogleFonts.abrilFatface(
-                              textStyle: TextStyle(
-                                color: Colors.black54,
-                                fontSize: 36,
-                                // letterSpacing: 0.5,
-                                shadows: [
-                                  Shadow(
-                                      color: Colors.black12,
-                                      offset: Offset(10, 10),
-                                      blurRadius: 5.0),
-                                  Shadow(
-                                      color: Colors.black12,
-                                      offset: Offset(3, 3),
-                                      blurRadius: 2.0),
-                                ],
-                              ),
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              scrollController.animateTo(size.height,
-                                  duration: Duration(milliseconds: 500),
-                                  curve: Curves.easeIn);
-                            },
-                            child: Text(
-                              "Pranab Saha",
-                              style: GoogleFonts.abrilFatface(
-                                textStyle: TextStyle(
-                                  color: Cooloors.primaryLightTextColor,
-                                  letterSpacing: 0.5,
-                                  fontSize: size.width / 14,
-                                  shadows: [
-                                    Shadow(
-                                        color: Colors.black12,
-                                        offset: Offset(10, 10),
-                                        blurRadius: 5.0),
-                                    Shadow(
-                                        color: Colors.black12,
-                                        offset: Offset(3, 3),
-                                        blurRadius: 2.0),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: size.height / 4),
-                        ],
-                      ),
+          child: Column(
+            children: [
+              SizedBox(
+                height: size.height / 6.5,
+              ),
+              Text(
+                "My Works",
+                style: GoogleFonts.abrilFatface(
+                  textStyle: TextStyle(
+                    color: Cooloors.primaryDarkTextColor,
+                    letterSpacing: 0.5,
+                    fontSize: 50,
+                    shadows: [
+                      Shadow(
+                          color: Colors.black12,
+                          offset: Offset(10, 10),
+                          blurRadius: 5.0),
+                      Shadow(
+                          color: Colors.black12,
+                          offset: Offset(3, 3),
+                          blurRadius: 2.0),
                     ],
                   ),
-                ],
+                ),
               ),
-            ),
+              Expanded(
+                child: GridView.count(
+                  childAspectRatio: 1.8,
+                  physics: BouncingScrollPhysics(),
+                  mainAxisSpacing: 10.0,
+                  // crossAxisSpacing: 5.0,
+                  crossAxisCount: 3,
+                  children: [
+                    MyWorks(
+                      description: "description 1",
+                      img: "Images/pranab.jpeg",
+                    ),
+                    MyWorks(
+                      description: "description 2",
+                      img: "Images/pranab.jpeg",
+                    ),
+                    MyWorks(
+                      description: "description 3",
+                      img: "Images/pranab.jpeg",
+                    ),
+                    MyWorks(
+                      description: "description 4",
+                      img: "Images/pranab.jpeg",
+                    ),
+                    MyWorks(
+                      description: "description 5",
+                      img: "Images/pranab.jpeg",
+                    ),
+                  ],
+                ),
+              )
+            ],
           ),
         ),
       ]),
+    );
+  }
+}
+
+class MyWorks extends StatelessWidget {
+  final String img;
+  final String description;
+
+  const MyWorks({Key key, this.img, this.description}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Image.asset(img),
+        Expanded(
+          child: Container(
+            height: double.infinity,
+            child: Text(description),
+          ),
+        )
+      ],
     );
   }
 }
